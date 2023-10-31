@@ -9,10 +9,11 @@ import lombok.ToString;
 @Setter
 @Builder
 @ToString
-public class Errordto
-{
-             int status=0;
-             String error;
-            Object message;
-        //"path": "string"
+public class contactResponse {
+
+String message;
+
+
+
+
 }

@@ -4,27 +4,26 @@ import com.google.gson.Gson;
 import dto.AuthRequestdto;
 import dto.AuthResponse;
 import dto.Errordto;
+import helpers.Helper;
 import okhttp3.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class LoginTests {
+public class LoginTests implements Helper {
+//String endpoint="/v1/user/login/usernamepassword";
 
-    public static final MediaType JSON=MediaType.get("application/json;charset=utf-8");
-String baseUrl="https://contactapp-telran-backend.herokuapp.com";
-    Gson gson=new Gson();
-    OkHttpClient client=new OkHttpClient();
 @Test
     public void loginPositive() throws IOException {
+    String endpoint="/v1/user/login/usernamepassword";
     AuthRequestdto requestdto=AuthRequestdto.builder().username
                     ("michat@def.com")
             .password("$Romanovski123454")
             .build();
 
     RequestBody requestBody=RequestBody.create(gson.toJson(requestdto),JSON);
-    Request request=new Request.Builder().url(baseUrl+"/v1/user/login/usernamepassword")
+    Request request=new Request.Builder().url(baseUrl+endpoint)
             .post(requestBody)
             .build();
     Response response=client.newCall(request).execute();

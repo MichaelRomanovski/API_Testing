@@ -4,18 +4,15 @@ import com.google.gson.Gson;
 import dto.AuthRequestdto;
 import dto.AuthResponse;
 import dto.Errordto;
+import helpers.Helper;
 import okhttp3.*;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class RegistrationtestApi {
+public class RegistrationtestApi implements Helper {
 
-    public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
-    String baseUrl = "https://contactapp-telran-backend.herokuapp.com";
 
-    Gson gson = new Gson();
-    OkHttpClient client = new OkHttpClient();
 
 
     @Test
